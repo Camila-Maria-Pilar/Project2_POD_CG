@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBS POD Web App - Settings</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+
+<body>
+    <header>
+        <img src="/public/images/logo.png" alt="NBS POD Logo">
+        <nav>
+          <ul class="navigation">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="create_pod.html">Create a POD</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="logout.html">Log Out</a></li>
+          </ul>
+        </nav>
+      </header>
+      
+
+  <main>
+    <div class="container">
+      <h1>NBS POD Master</h1>
+      <p>Please follow the below prompts and instructions to edit the POD document.</p>
+      <div class="section">
+        <h3>Staff Members</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be dynamically added using JavaScript -->
+          </tbody>
+        </table>
+        <button id="addStaff">Add</button>
+      </div>
+
+      <div class="section">
+        <h3>Clients</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Company Name</th>
+              <th>Courier</th>
+              <th>Plant/Mine Site</th>
+              <th>Street Address</th>
+              <th>Suburb</th>
+              <th>Postcode</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be dynamically added using JavaScript -->
+          </tbody>
+        </table>
+        <button id="addClient">Add</button>
+      </div>
+
+      <div class="section">
+        <h3>Couriers</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Courier Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be dynamically added using JavaScript -->
+          </tbody>
+        </table>
+        <button id="addCourier">Add</button>
+      </div>
+
+      <div class="section">
+        <h3>Items (Goods/Products)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Length (cm)</th>
+              <th>Width (cm)</th>
+              <th>Height (cm)</th>
+              <th>Weight (Kg)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be dynamically added using JavaScript -->
+          </tbody>
+        </table>
+        <button id="addItem">Add</button>
+      </div>
+
+      <div class="section">
+        <h3>Purchasing Groups</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Contact Name</th>
+              <th>Contact Number</th>
+              <th>Contact Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be dynamically added using JavaScript -->
+          </tbody>
+        </table>
+        <button id="addPurchasingGroup">Add</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

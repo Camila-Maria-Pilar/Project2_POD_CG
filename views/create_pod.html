@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NBS POD Web App - Create a POD</title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+
+<body>
+  <header>
+    <img src="/public/images/logo.png" alt="NBS POD Logo">
+    <nav>
+      <ul class="navigation">
+        <li><a href="/views/dashboard.html">Dashboard</a></li>
+        <li><a href="/views/create_pod.html">Create a POD</a></li>
+        <li><a href="/views/settings.html">Settings</a></li>
+        <li><a href="/views/logout.html">Log Out</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>NBS POD Creator</h1>
+      <p>Please follow the below prompts and instructions to create the POD.</p>
+      
+
+      <div class="section">
+        <h3>Sale / WO Details</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Creation Date:</td>
+              <td>Today's date</td>
+            </tr>
+            <tr>
+              <td>Created By:</td>
+              <td>
+                <select id="dropdownStaff">
+                  <option value="option1"></option>
+                  <option value="option1">Claire Watts</option>
+                  <option value="option2">James Cooks</option>
+                  <option value="option3">Larry Wong</option>
+                </select>
+                
+              </td>
+            </tr>
+            <tr>
+              <td>WO#:</td>
+              <td><input type="text" id="woId"></td>
+            </tr>
+            <tr>
+              <td>Client:</td>
+              <td>
+                <select id="dropdownClient">
+                  <option value="option1"></option>
+                  <option value="option1">BHP</option>
+                  <option value="option2">RIO TINTO</option>
+                  <option value="option3">AJ Machinery</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>PO#:</td>
+              <td><input type="text" id="poId"></td>
+            </tr>
+            <tr>
+              <td>Courier:</td>
+              <td>
+                <select id="dropdownCourier">
+                  <option value="option1"></option>
+                  <option value="option1">LINFOX</option>
+                  <option value="option2">CENTURION</option>
+                  <option value="option3">TOLL</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Pickup/Dispatch Date:</td>
+              <td><input type="date" id="pickupDate"></td>
+            </tr>
+            <tr>
+              <td>Delivery Type:</td>
+              <td>
+                <label><input type="radio" name="deliveryType" value="pickup"> Pickup</label>
+                <label><input type="radio" name="deliveryType" value="delivery"> Delivery</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section">
+        <h3>Items Details</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>Item:</td>
+              <td>
+                <select id="dropdownItem">
+                  <option value="option1"></option>
+                  <option value="option1">Tool Cabinet</option>
+                  <option value="option2">Excavator Bucket</option>
+                  <option value="option3">Fuel Tank</option>
+                </select>                
+              </td>
+            </tr>
+            <tr>
+              <td>QTY:</td>
+              <td>
+                <select id="dropdown1">
+                  <option value="option1"></option>
+                  <option value="option1">1</option>
+                  <option value="option1">2</option>
+                  <option value="option1">3</option>
+                  <option value="option1">4</option>
+                  <option value="option1">5</option>
+                  <option value="option1">6</option>
+                  <option value="option1">7</option>
+                  <option value="option1">8</option>
+                  <option value="option1">9</option>
+                  <option value="option1">10</option>
+                  <option value="option1">10+</option>                 
+                </select> 
+            </tr>
+            <tr>
+              <td>Dimensions (cm) L*W*H / Kg:</td>
+              <td><input type="text" id="poId"></td>
+            </tr>                   
+          </tbody>
+        </table>
+      </div>
+          
+     
+      <div class="section">
+        <h3>Travel Request Details</h3>
+        <table>
+          <tbody>
+            
+            <tr>
+              <td>Booking Reference</td>
+              <td><input type="text" id="bookingReference"></td>
+            </tr>
+            <tr>
+              <td>Name of Receiver</td>
+              <td><input type="text" id="receiverName"></td>
+            </tr>
+            <tr>
+              <td>Signature</td>
+              <td><input type="text" id="signature"></td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td><input type="text" id="travelRequestDate"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button id="createPod">Create POD</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
+
