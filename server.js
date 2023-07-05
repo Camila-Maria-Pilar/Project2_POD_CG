@@ -42,11 +42,12 @@ const sess = {
   }) //add to my project
 };
 
+app.use(session(sess));
 
 // API routes
 app.use(webRoutes);
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server running on port: 'http://localhost:${PORT}`);
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log(`Server running on port: 'http://localhost:${PORT}`));
 });
