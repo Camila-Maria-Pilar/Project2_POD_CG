@@ -26,21 +26,21 @@ app.set('view engine', 'hbs');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ 
-  secret: 'your-secret-key', 
+
+const sess = {
+  secret: 'Super secret secret',
   cookie: {
     maxAge: 300000,
     httpOnly: true,
     secure: false,
     sameSite: 'strict',
   },
-  resave: false, 
+  resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
-  db: sequelize
-  })
-  
-}));
+    db: sequelize
+  }) //add to my project
+};
 
 
 // API routes
