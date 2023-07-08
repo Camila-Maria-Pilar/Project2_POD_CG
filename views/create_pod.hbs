@@ -2,26 +2,34 @@
   <h1>POD Creator</h1>
   <p>Please follow the below prompts and instructions to create the POD.</p>
 
-  <div class="section">
-    <h3>Dispatch Details</h3>
+  <form id="createForm" action="/submit_form" method="POST">
+    <div class="section">
+      <h3>Dispatch Details</h3>
 
-    <div>
-      <label for="date">Date:</label>
-      <input type="date" id="date" name="date" required>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+      </div>
+
+      <div>
+        <label for="client">Client:</label>
+        <input type="text" id="client" name="client" required>
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+      </div>
     </div>
 
-    <div>
-      <label for="client">Client:</label>
-      <input type="text" id="client" name="client" required>
-    </div>
-
-    <div>
-      <label for="description">Description:</label>
-      <textarea id="description" name="description" required></textarea>
-    </div>
-  </div>
-
-  <button id="createPod">Create POD</button>
+    <button id="createPod">Create POD</button>
+  </form>
 </div>
 
-
+<script>
+  const createPodButton = document.getElementById('createPod');
+  createPodButton.addEventListener('click', () => {
+    // Submit the form when the button is clicked
+    document.getElementById('createForm').submit();
+  });
+</script>

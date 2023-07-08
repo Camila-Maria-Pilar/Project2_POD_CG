@@ -2,7 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./User');
 
-
 class Pod extends Model {}
 
 Pod.init(
@@ -25,24 +24,35 @@ Pod.init(
     description: {
       type: DataTypes.STRING,
     },
-       
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'User',
+        key: 'id',
+      },
+      field: 'userId', 
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'pod',
+    modelName: 'Pod',
   }
 );
 
 Pod.belongsTo(User, {
   foreignKey: 'userId',
+  as: 'user',
 });
+
+
 
 User.hasMany(Pod, {
   foreignKey: 'userId',
 });
 
-module.exports = Pod;
 
+module.exports = Pod;

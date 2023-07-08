@@ -30,7 +30,6 @@ router.get('/login', (req, res) => {
   }
 });
 
-
 // Route for handling user login form submission
 router.post('/login', async (req, res) => {
   try {
@@ -54,11 +53,17 @@ router.post('/login', async (req, res) => {
 // Route for rendering the dashboard page
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const deliveryData = await Pod.findAll({ where: { userId: req.session.user.id } });
+    const deliveryData = await Pod.findAll({
+      where: { userId: req.session.user.id },
+      include: [{ model: User, as: 'user' }],
+    });
+
+    console.log(deliveryData); // Add this line to check the value of deliveryData
+
     res.render('dashboard', { deliveryData });
   } catch (error) {
     console.log(error);
-    res.status(500).render('error', { error: 'An error occurred while fetching delivery data' });
+    res.status(500).render('error', { error: error.message });
   }
 });
 
@@ -85,6 +90,11 @@ router.get('/logout', (req, res) => {
   req.session.destroy(() => {
     res.redirect('/login');
   });
+});
+
+// Route for the root URL ("/")
+router.get('/', (req, res) => {
+  res.redirect('/login');
 });
 
 module.exports = router;
