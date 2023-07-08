@@ -11,12 +11,17 @@
 
 <body>
   <header>
-    <img src="/public/images/logo.png" alt="NBS POD Logo">
+    <img src="images/logo.png" alt="NBS POD Logo">
     <nav>
       <ul class="navigation">
         <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/create_pod">Create a POD</a></li>        
-        <li><a href="/logout">Log Out</a></li>
+        <li><a href="/create_pod">Create POD</a></li>
+        {{#if session.logged_in}}
+          <li><a href="/logout">Log Out</a></li>
+        {{else}}
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/register">Register</a></li>
+        {{/if}}
       </ul>
     </nav>
   </header>
@@ -25,7 +30,7 @@
     {{{body}}}
   </main>
 
-  <script src="/script.js"></script>
+  <script src="/index.js"></script>
 </body>
 
 </html>

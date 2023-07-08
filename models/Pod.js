@@ -1,21 +1,48 @@
-const { DataTypes } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./User');
 
-const Pod = sequelize.define(
-  'Pod',
+
+class Pod extends Model {}
+
+Pod.init(
   {
-    title: {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    client: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT,
-      allowNull: false,
+      type: DataTypes.STRING,
     },
+       
   },
   {
-    // To add other model options 
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'pod',
   }
 );
 
+Pod.belongsTo(User, {
+  foreignKey: 'userId',
+});
+
+User.hasMany(Pod, {
+  foreignKey: 'userId',
+});
+
 module.exports = Pod;
+

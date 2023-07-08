@@ -1,0 +1,17 @@
+[
+    {
+      "date": "22/06/2023",
+      "client": "AUSTOOLS",
+      "description": "1 Fuel Tank on a pallet, dimesions 240x120x150cm. 120kg"
+    },
+    {
+      "date": "04/06/2023",
+      "client": "BHP",
+      "description": "1 Lifting device on a pallet, dimesions 240x120x50cm. 50kg"
+    },
+    {
+      "date": "08/07/2023",
+      "client": "WesternSupplies",
+      "description": "1 Water Tank on a pallet, dimesions 240x120x200cm. 800kg"
+    }
+  ]

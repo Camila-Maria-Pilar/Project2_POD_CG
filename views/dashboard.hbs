@@ -1,26 +1,25 @@
 
-    <div class="container">
-      <h1>Welcome to NBS POD Portal</h1>
-      <h2>POD Summary</h2>
-      <p>Listed below are the 10 most recent jobs created for your account. Click on the POD#ID number to view more details for each job.</p>
+{{#if deliveryData}}
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Client</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each deliveryData}}
+        <tr>
+          <td>{{date}}</td>
+          <td>{{client}}</td>
+          <td>{{description}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+{{else}}
+  <p>No delivery data available</p>
+{{/if}}
 
-      <div class="create-btn">
-        <button>Create POD</button>
-      </div>
-
-      <table id="summary-table">
-        <thead>
-          <tr>
-            <th>POD ID#</th>
-            <th>Date</th>
-            <th>Client</th>
-            <th>Description</th>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Table rows will be dynamically added using JavaScript -->
-        </tbody>
-      </table>
-    </div>
 
