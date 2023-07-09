@@ -29,7 +29,9 @@
 <script>
   const createPodButton = document.getElementById('createPod');
   createPodButton.addEventListener('click', () => {
-    // Submit the form when the button is clicked
+    // Disable the button after clicking
+    createPodButton.disabled = true;
+    // Submit the form
     document.getElementById('createForm').submit();
   });
 </script>

@@ -32,6 +32,7 @@ Pod.init(
         key: 'id',
       },
       field: 'userId', 
+      unique: true, // Add this line
     },
   },
   {
@@ -52,6 +53,7 @@ Pod.belongsTo(User, {
 
 User.hasMany(Pod, {
   foreignKey: 'userId',
+  
 });
 
 

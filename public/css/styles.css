@@ -120,6 +120,20 @@ body {
     cursor: pointer;
   }
   
+  .fa-pen,
+  .fa-trash-alt {
+    color: #007bff;
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  
+  .fa-pen:hover,
+  .fa-trash-alt:hover {
+    color: #0056b3;
+    cursor: pointer;
+  }
+  
+
   /* Logout screen */
   h3 {
     margin-bottom: 10px;

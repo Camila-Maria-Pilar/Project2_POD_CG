@@ -58,14 +58,46 @@ router.get('/dashboard', withAuth, async (req, res) => {
       include: [{ model: User, as: 'user' }],
     });
 
-    console.log(deliveryData); // Add this line to check the value of deliveryData
+    console.log(deliveryData); // Check the retrieved data in the console
 
-    res.render('dashboard', { deliveryData });
+    const formattedDeliveryData = deliveryData.map(item => item.get({ plain: true }));
+    console.log(formattedDeliveryData); // Check the formatted data in the console
+
+    res.render('dashboard', { deliveryData: formattedDeliveryData });
   } catch (error) {
     console.log(error);
     res.status(500).render('error', { error: error.message });
   }
 });
+
+// webRoutes.js
+
+// Route for rendering the update POD form
+router.get('/edit_pod/:id', withAuth, async (req, res) => {
+  try {
+    const podId = req.params.id;
+    const podData = await Pod.findByPk(podId);
+    const formattedPodData = podData.get({ plain: true });
+    res.render('edit_pod', { podData: formattedPodData });
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('error', { error: 'An error occurred while rendering the update form' });
+  }
+});
+
+// Route for handling the update POD form submission
+router.post('/update_pod/:id', withAuth, async (req, res) => {
+  try {
+    const podId = req.params.id;
+    const { date, client, description } = req.body;
+    await Pod.update({ date, client, description }, { where: { id: podId } });
+    res.redirect('/dashboard');
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('error', { error: 'An error occurred while updating the POD entry' });
+  }
+});
+
 
 
 // Route for rendering the create POD page
@@ -77,11 +109,24 @@ router.get('/create_pod', (req, res) => {
 router.post('/submit_form', withAuth, async (req, res) => {
   try {
     const { date, client, description } = req.body;
+    console.log('Creating POD:', { date, client, description, userId: req.session.user.id }); // Add this line
     await Pod.create({ date, client, description, userId: req.session.user.id });
     res.redirect('/dashboard');
   } catch (error) {
     console.log(error);
     res.status(500).render('error', { error: 'An error occurred while creating a new POD entry' });
+  }
+});
+
+// Route for deleting a POD entry
+router.get('/delete_pod/:id', withAuth, async (req, res) => {
+  try {
+    const podId = req.params.id;
+    await Pod.destroy({ where: { id: podId } });
+    res.redirect('/dashboard');
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('error', { error: 'An error occurred while deleting the POD' });
   }
 });
 

@@ -1,0 +1,35 @@
+<!-- edit_pod.hbs -->
+
+<div class="container">
+  <h1>Update POD</h1>
+
+  <form id="updateForm" action="/update_pod/{{podData.id}}" method="POST">
+    <div>
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" value="{{podData.date}}" required>
+    </div>
+
+    <div>
+      <label for="client">Client:</label>
+      <input type="text" id="client" name="client" value="{{podData.client}}" required>
+    </div>
+
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required>{{podData.description}}</textarea>
+    </div>
+
+    <button id="updatePod">Update POD</button>
+  </form>
+</div>
+
+<script>
+  const updatePodButton = document.getElementById('updatePod');
+  updatePodButton.addEventListener('click', (event) => {
+    const dateField = document.getElementById('date');
+    if (!dateField.value) {
+      event.preventDefault(); // Prevent form submission
+      alert('Please select a date before updating the POD.'); // Display an alert message
+    }
+  });
+</script>
