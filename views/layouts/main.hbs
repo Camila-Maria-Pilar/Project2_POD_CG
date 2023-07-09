@@ -12,6 +12,7 @@
 </head>
 
 <body>
+  {{#unless isLoginPage}}
   <header>
     <img src="images/logo.png" alt="NBS POD Logo">
     <nav>
@@ -28,12 +29,13 @@
       </ul>
     </nav>
   </header>
+  {{/unless}}
 
   <main>
     {{{body}}}
   </main>
 
-  <script src="/index.js"></script>
+
 </body>
 
 </html>

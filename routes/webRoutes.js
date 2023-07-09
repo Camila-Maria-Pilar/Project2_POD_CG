@@ -26,7 +26,7 @@ router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard'); // Redirect to the dashboard if logged in
   } else {
-    res.render('login'); // Render the login page
+    res.render('login', { isLoginPage: true }); // Pass isLoginPage as true
   }
 });
 
