@@ -28,8 +28,17 @@
 
 <script>
   const createPodButton = document.getElementById('createPod');
-  createPodButton.addEventListener('click', () => {
-    // Disable the button after clicking
+  createPodButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    
+    const dateInput = document.getElementById('date');
+    
+    if (!dateInput.value) {
+      alert('Please select a date.'); // Display alert message
+      return;
+    }
+    
+    // Disable the button after validation
     createPodButton.disabled = true;
     // Submit the form
     document.getElementById('createForm').submit();
