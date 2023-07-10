@@ -131,6 +131,24 @@ router.get('/delete_pod/:id', withAuth, async (req, res) => {
   }
 });
 
+
+// Route for viewing the QR Code
+router.get('/qr_code/:id', withAuth, async (req, res) => {
+  try {
+    const podId = req.params.id;
+    const podData = await Pod.findByPk(podId);
+    if (!podData) {
+      return res.status(404).render('error', { error: 'POD not found' });
+    }
+    const formattedPodData = podData.get({ plain: true });
+    res.render('qr_code', { podData: formattedPodData });
+  } catch (error) {
+    console.log(error);
+    res.status(500).render('error', { error: 'An error occurred while rendering the QR Code' });
+  }
+});
+
+
 // Route for handling user logout
 router.get('/logout', (req, res) => {
   req.session.destroy(() => {
