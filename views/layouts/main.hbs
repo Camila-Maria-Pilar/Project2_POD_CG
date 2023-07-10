@@ -13,6 +13,8 @@
 
 <body>
   {{#unless isLoginPage}}
+  {{#unless isRegisterPage}}
+  {{#unless isLogoutPage}}
   <header>
     <img src="images/logo.png" alt="NBS POD Logo">
     <nav>
@@ -29,6 +31,8 @@
       </ul>
     </nav>
   </header>
+  {{/unless}}
+  {{/unless}}
   {{/unless}}
 
   <main>

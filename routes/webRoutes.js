@@ -5,8 +5,9 @@ const { User, Pod } = require('../models');
 
 // Route for rendering the registration page
 router.get('/register', (req, res) => {
-  res.render('register');
+  res.render('register', { isRegisterPage: true }); 
 });
+
 
 // Route for handling user registration form submission
 router.post('/register', async (req, res) => {
@@ -26,7 +27,7 @@ router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/dashboard'); // Redirect to the dashboard if logged in
   } else {
-    res.render('login', { isLoginPage: true }); // Pass isLoginPage as true
+    res.render('login', { isLoginPage: true }); 
   }
 });
 
@@ -133,9 +134,12 @@ router.get('/delete_pod/:id', withAuth, async (req, res) => {
 // Route for handling user logout
 router.get('/logout', (req, res) => {
   req.session.destroy(() => {
-    res.redirect('/login');
+    res.render('logout', { isLogoutPage: true }); 
   });
 });
+
+
+
 
 // Route for the root URL ("/")
 router.get('/', (req, res) => {

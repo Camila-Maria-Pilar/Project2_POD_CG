@@ -88,6 +88,11 @@ body {
     border-radius: 4px;
     cursor: pointer;
   }
+
+  button:hover {
+    background-color: #404041;
+    text-decoration: #0056b3;
+  }
   
   /* Dashboard screen */
   .filter-section {
@@ -131,6 +136,21 @@ body {
   .fa-trash-alt:hover {
     color: #0056b3;
     cursor: pointer;
+  }
+  
+  .add-pod {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-pod:hover {
+    background-color: #404041;
+    text-decoration: #0056b3;
   }
   
 
