@@ -51,6 +51,15 @@ header nav ul li a:hover {
   text-decoration: underline;
 }
 
+.logo-image {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+
+
+
 main {
   padding: 20px;
 }
