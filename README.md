@@ -32,13 +32,17 @@ The following image shows an example of the Dashboard page - mobile view:
 
 The URL of the deployed application: 
 
-https://glacial-refuge-34295-405df1b82dc0.herokuapp.com/loginLinks to an external site.
+https://glacial-refuge-34295-405df1b82dc0.herokuapp.com/login
+
+
 
 The URL of the GitHub repository:
 
-https://github.com/Camila-Maria-Pilar/Project2_POD_CG.gitLinks to an external site.
+https://github.com/Camila-Maria-Pilar/Project2_POD_CG.git
+
 
  
 The URL of your portfolio, with my project added to it:
 
-https://camila-maria-pilar.github.io/Camila-FullStackSolutions-Portfolio/Links to an external site.
+https://camila-maria-pilar.github.io/Camila-FullStackSolutions-Portfolio/
+
