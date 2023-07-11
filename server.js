@@ -10,8 +10,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-//possible heoroku fix
-const sessionStore = new SequelizeStore({ db: sequelize });
+
 
 
 const hbs = exphbs.create({ helpers, extname: 'hbs' });
@@ -28,9 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 
 
-//possible heoroku fix
-app.set('trust proxy', 1);
-
 
 const sess = {
   secret: 'Super secret secret',
@@ -46,10 +42,6 @@ const sess = {
     db: sequelize
   })
 };
-
-//possible heoroku fix
-sessionStore.sync();
-
 
 
 app.use(session(sess));
