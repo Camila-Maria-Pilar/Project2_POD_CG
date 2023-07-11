@@ -47,8 +47,7 @@ router.post('/login', async (req, res) => {
     const user = await User.findOne({ where: { email } });
 
     if (!user || !user.checkPassword(password)) {
-      res.status(401).render('error', { error: 'Invalid email or password' });
-      return;
+      throw new Error('Invalid email or password');
     }
 
     req.session.logged_in = true;
@@ -56,9 +55,10 @@ router.post('/login', async (req, res) => {
     res.redirect('/dashboard');
   } catch (error) {
     console.log(error);
-    res.status(500).render('error', { error: 'An error occurred during login' });
+    res.render('login', { isLoginPage: true, error: error.message });
   }
 });
+
 
 
 // Route for rendering the dashboard page
