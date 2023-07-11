@@ -10,15 +10,16 @@
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required>
     </div>
-    <div>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" required>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" minlength="8" required>
+      <p class="error-message">{{error.password}}</p>
     </div>
     <button id="registerButton">Register</button>
     <p>Already have an account?<a href="/login"> Click Here</a></p>
   </form>
   {{#if error}}
-    <p class="error">{{error}}</p>
+    <p class="error-message">{{error}}</p>
   {{/if}}
 </div>
 

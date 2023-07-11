@@ -19,9 +19,15 @@ router.post('/register', async (req, res) => {
     res.redirect('/login');
   } catch (error) {
     console.log(error);
-    res.status(500).render('error', { error: 'An error occurred during registration' });
+    let errorMessage = 'An error occurred during registration';
+    
+    if (error.name === 'SequelizeUniqueConstraintError') {
+      errorMessage = 'The email address is already registered';        
+    }       
+    res.render('register', { isRegisterPage: true, error: errorMessage });
   }
 });
+
 
 // Route for rendering the login page
 router.get('/login', (req, res) => {
