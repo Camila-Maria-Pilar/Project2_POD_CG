@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 const { User, Pod } = require('../models');
 
+
+
 // Route for rendering the registration page
 router.get('/register', (req, res) => {
   res.render('register', { isRegisterPage: true }); 
@@ -31,6 +33,7 @@ router.get('/login', (req, res) => {
   }
 });
 
+
 // Route for handling user login form submission
 router.post('/login', async (req, res) => {
   try {
@@ -50,6 +53,7 @@ router.post('/login', async (req, res) => {
     res.status(500).render('error', { error: 'An error occurred during login' });
   }
 });
+
 
 // Route for rendering the dashboard page
 router.get('/dashboard', withAuth, async (req, res) => {
@@ -71,7 +75,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// webRoutes.js
 
 // Route for rendering the update POD form
 router.get('/edit_pod/:id', withAuth, async (req, res) => {
@@ -85,6 +88,7 @@ router.get('/edit_pod/:id', withAuth, async (req, res) => {
     res.status(500).render('error', { error: 'An error occurred while rendering the update form' });
   }
 });
+
 
 // Route for handling the update POD form submission
 router.post('/update_pod/:id', withAuth, async (req, res) => {
@@ -100,11 +104,11 @@ router.post('/update_pod/:id', withAuth, async (req, res) => {
 });
 
 
-
 // Route for rendering the create POD page
 router.get('/create_pod', (req, res) => {
   res.render('create_pod');
 });
+
 
 // API route for handling form submission
 router.post('/submit_form', withAuth, async (req, res) => {
@@ -119,6 +123,7 @@ router.post('/submit_form', withAuth, async (req, res) => {
   }
 });
 
+
 // Route for deleting a POD entry
 router.get('/delete_pod/:id', withAuth, async (req, res) => {
   try {
@@ -132,31 +137,12 @@ router.get('/delete_pod/:id', withAuth, async (req, res) => {
 });
 
 
-// Route for viewing the QR Code
-router.get('/qr_code/:id', withAuth, async (req, res) => {
-  try {
-    const podId = req.params.id;
-    const podData = await Pod.findByPk(podId);
-    if (!podData) {
-      return res.status(404).render('error', { error: 'POD not found' });
-    }
-    const formattedPodData = podData.get({ plain: true });
-    res.render('qr_code', { podData: formattedPodData });
-  } catch (error) {
-    console.log(error);
-    res.status(500).render('error', { error: 'An error occurred while rendering the QR Code' });
-  }
-});
-
-
 // Route for handling user logout
 router.get('/logout', (req, res) => {
   req.session.destroy(() => {
     res.render('logout', { isLogoutPage: true }); 
   });
 });
-
-
 
 
 // Route for the root URL ("/")

@@ -52,18 +52,6 @@
     });
   });
 
-// Attach event listener to the view QR Code links
-const viewQrCodeLinks = document.querySelectorAll('.view-qr-code');
-viewQrCodeLinks.forEach(link => {
-  link.addEventListener('click', event => {
-    event.preventDefault();
-    const podId = link.getAttribute('href').split('/').pop();
-    const qrCodeUrl = `/qr_code/${podId}`; // Update the URL
-    window.open(qrCodeUrl, '_blank');
-  });
-});
-
-
 </script>
 
 
