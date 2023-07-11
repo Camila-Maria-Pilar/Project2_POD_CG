@@ -5,6 +5,7 @@ const { User, Pod } = require('../models');
 
 
 
+
 // Route for rendering the registration page
 router.get('/register', (req, res) => {
   res.render('register', { isRegisterPage: true }); 
