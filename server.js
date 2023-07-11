@@ -44,6 +44,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(webRoutes);
 
 
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log(`Server running on port: 'http://localhost:${PORT}`));
 });
